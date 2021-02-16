@@ -9,9 +9,13 @@ $base-color: $color-base-green;
 
 .navbar-list{
     @extend .horizontal-list;
-    width: 100%;
+    padding: 0 5rem;
     &-item{
-        margin: 1rem;
-        font-size: $font-size-medium-micro;
+        margin: 1.5rem 5rem;
+        font-size: $font-size-small;
+        color: $color-base-white;
+        font-weight: 500; 
+        cursor: pointer;
+        transition: all .3s ease-in;
     }
 }
