@@ -2,9 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { UiModule } from './presentation/ui/ui.module';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
+import { PresentationModule } from './presentation/presentation.module';
 
 @NgModule({
   declarations: [
@@ -13,7 +13,7 @@ import { AppRoutingModule } from './app-routing.module';
   imports: [
     BrowserModule,
     CommonModule,
-    UiModule,
+    PresentationModule,
     AppRoutingModule
   ],
   providers: [],
