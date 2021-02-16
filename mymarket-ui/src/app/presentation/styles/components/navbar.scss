@@ -1,0 +1,17 @@
+
+$base-color: $color-base-green;
+
+.navbar{
+    display: inline-block;
+    border-radius: $border-radius-1;
+    background-color: $base-color;
+}
+
+.navbar-list{
+    @extend .horizontal-list;
+    width: 100%;
+    &-item{
+        margin: 1rem;
+        font-size: $font-size-medium-micro;
+    }
+}
