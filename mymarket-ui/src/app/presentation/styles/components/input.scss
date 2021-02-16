@@ -1,0 +1,14 @@
+.input{
+    border: none;
+    outline: none;
+    background-color: $color-base-white;
+}
+
+.input-extra-large{
+    @extend .input;
+    border-radius: $border-radius-1;
+    text-align: left;
+    padding: 1.5rem 1rem;
+    width: 45vw;
+    font-size: $font-size-medium;
+}

@@ -4,6 +4,7 @@ import { NavbarComponent } from './ui/navbar/navbar.component';
 import { HomeComponent } from './views/home/home.component';
 import { LogoComponent } from './ui/logo/logo.component';
 import { HeaderComponent } from './ui/header/header.component';
+import { SearchBarComponent } from './ui/search-bar/search-bar.component';
 
 
 
@@ -12,7 +13,8 @@ import { HeaderComponent } from './ui/header/header.component';
     NavbarComponent,
     HomeComponent,
     LogoComponent,
-    HeaderComponent
+    HeaderComponent,
+    SearchBarComponent
   ],
   imports: [
     CommonModule
