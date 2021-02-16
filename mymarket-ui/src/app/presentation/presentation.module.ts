@@ -5,6 +5,9 @@ import { HomeComponent } from './views/home/home.component';
 import { LogoComponent } from './ui/logo/logo.component';
 import { HeaderComponent } from './ui/header/header.component';
 import { SearchBarComponent } from './ui/search-bar/search-bar.component';
+import { RouterModule } from '@angular/router';
+import { ProductSelectionComponent } from './views/product-selection/product-selection.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -14,10 +17,13 @@ import { SearchBarComponent } from './ui/search-bar/search-bar.component';
     HomeComponent,
     LogoComponent,
     HeaderComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    ProductSelectionComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule,
+    ReactiveFormsModule
   ]
 })
 export class PresentationModule { }

@@ -1,14 +1,30 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-bar',
   templateUrl: './search-bar.component.html'
 })
 export class SearchBarComponent implements OnInit {
+  searchForm: FormGroup;
 
-  constructor() { }
+  constructor( private router: Router) { }
 
   ngOnInit(): void {
+    this.initForm();
   }
 
+  onSubmit(){
+    if(!this.searchForm.valid){
+      return
+    }
+    console.log(this.searchForm);
+  }
+
+  private initForm(){
+    this.searchForm = new FormGroup({
+      search: new FormControl(''/*, [Validators.required]*/)
+    })
+  }
 }
