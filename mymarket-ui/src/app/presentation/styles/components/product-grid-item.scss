@@ -1,0 +1,32 @@
+.product-grid-item-container {
+    border: 1px solid $color-base-grey;
+    width: 30rem;
+    cursor: pointer;
+    & .offers-number {
+        position: absolute;
+        font-size: $font-size-medium-micro;
+        background-color: $color-base-green;
+        display: inline-block;
+        color: $color-base-white;
+        padding: 0.3rem 2rem 0.3rem 0.3rem;
+    }
+}
+.product-grid-item {
+    word-wrap: break-word;
+
+    & img {
+        // height: 100%;
+        width: 100%;
+    }
+
+    & h4 {
+        background-color: $color-base-grey-light;
+        font-size: $font-size-medium;
+        // max-height: 3rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+}

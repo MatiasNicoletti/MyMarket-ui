@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-bar',
@@ -9,7 +9,9 @@ import { Router } from '@angular/router';
 export class SearchBarComponent implements OnInit {
   searchForm: FormGroup;
 
-  constructor( private router: Router) { }
+  constructor(  private router: Router,
+                private route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
     this.initForm();
@@ -20,6 +22,7 @@ export class SearchBarComponent implements OnInit {
       return
     }
     console.log(this.searchForm);
+    this.router.navigate(['ofertas'], {queryParams: {producto: this.searchForm.value.search}});
   }
 
   private initForm(){

@@ -4,7 +4,12 @@
             <button class="btn-secondary btn-medium">Filtrar</button>
         </div>
         <div class="search-bar-input">
-            <input type="text" class="input-extra-large" placeholder="Ingresá el nombre de...">
+            <input 
+                type="text" 
+                class="input-extra-large" 
+                placeholder="Ingresá el nombre de..."
+                formControlName="search"    
+            >
         </div>
         <div class="search-bar-action">
             <button (click)="onSubmit()" class="btn-action btn-medium" >Buscar</button>

@@ -8,6 +8,8 @@ import { SearchBarComponent } from './ui/search-bar/search-bar.component';
 import { RouterModule } from '@angular/router';
 import { ProductSelectionComponent } from './views/product-selection/product-selection.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ProductGridComponent } from './views/product-grid/product-grid.component';
+import { ProductGridItemComponent } from './views/product-grid-item/product-grid-item.component';
 
 
 
@@ -18,7 +20,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     LogoComponent,
     HeaderComponent,
     SearchBarComponent,
-    ProductSelectionComponent
+    ProductSelectionComponent,
+    ProductGridComponent,
+    ProductGridItemComponent
   ],
   imports: [
     CommonModule,

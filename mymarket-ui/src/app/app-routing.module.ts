@@ -6,11 +6,11 @@ import { ProductSelectionComponent } from './presentation/views/product-selectio
 const routes: Routes = [
     { 
         path: '', 
-        redirectTo: '/home', 
+        redirectTo: '/inicio', 
         pathMatch: 'full' 
     },
     {
-        path: 'home',
+        path: 'inicio',
         component: HomeComponent
     },
     {
