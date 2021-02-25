@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-bar',
@@ -9,8 +9,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class SearchBarComponent implements OnInit {
   searchForm: FormGroup;
 
-  constructor(  private router: Router,
-                private route: ActivatedRoute
+  constructor(
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
