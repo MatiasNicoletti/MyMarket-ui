@@ -1,0 +1,69 @@
+$filter-bg-black-shadow: 0.15;
+
+.filter {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    
+    top: 0;
+    left: 0;
+    transition: all .3s ease;
+    &-container {
+        position: inherit;
+        z-index: 150;
+        width: 25%;
+        height: 100%;
+        background-color: $color-base-white;
+        -webkit-box-shadow: 6px 0px 11px 4px rgba(0, 0, 0, $filter-bg-black-shadow);
+        box-shadow: 6px 0px 11px 4px rgba(0, 0, 0, $filter-bg-black-shadow);
+        // left: -25%;
+
+    }
+
+    &-bg-dark {
+        background-color: rgba(0, 0, 0, 0.116);
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.filter-active {
+    opacity: 1;
+    display: block;
+    z-index: 100;
+}
+
+.filter-not-active {
+    opacity: 0;
+    // display: none;
+    z-index: -10;
+}
+
+.filter-container-active {
+    animation-name: slide_from_left_to_right;
+    animation-duration: .15s;
+    animation-fill-mode: ease;
+}
+
+.filter-container-not-active {
+    // animation-name: slide_from_right_to_left;
+    animation-duration: .2s;
+}
+
+@keyframes slide_from_left_to_right{
+    0%{left: -25%;}
+    25%{left: -20%;}
+    50%{left: -15%;}
+    75%{left: -10%;}
+    100%{left: 0%}
+}
+@keyframes slide_from_right_to_left{
+    0%{left: 0%}
+    // 50%{left: 50%;}
+    100%{left: -50%;}
+}
+// @keyframes slide_from_left_to_right{
+//     100%{left: 0%;}
+//     50%{left: 50%;}
+//     0%{left: 100%}
+// }

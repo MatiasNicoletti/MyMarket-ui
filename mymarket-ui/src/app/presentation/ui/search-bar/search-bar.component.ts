@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CommonService } from 'src/app/services/common/common.service';
 
 @Component({
   selector: 'app-search-bar',
@@ -11,6 +12,7 @@ export class SearchBarComponent implements OnInit {
 
   constructor(
     private router: Router,
+    private commonService: CommonService
   ) { }
 
   ngOnInit(): void {
@@ -29,5 +31,10 @@ export class SearchBarComponent implements OnInit {
     this.searchForm = new FormGroup({
       search: new FormControl(''/*, [Validators.required]*/)
     })
+  }
+
+  onClick() {
+    console.log('abrir filter');
+    this.commonService.emitData(true);
   }
 }

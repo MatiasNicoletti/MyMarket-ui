@@ -1,7 +1,7 @@
 <div class="search-bar">
     <form [formGroup]="searchForm">
         <div class="search-bar-filter">
-            <button class="btn-secondary btn-medium">Filtrar</button>
+            <button class="btn-secondary btn-medium" (click)="onClick()">Filtrar</button>
         </div>
         <div class="search-bar-input">
             <input 
@@ -16,3 +16,4 @@
         </div>
     </form>
 </div>
+<app-filter></app-filter>

@@ -10,6 +10,7 @@ import { ProductSelectionComponent } from './views/product-selection/product-sel
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProductGridComponent } from './views/product-grid/product-grid.component';
 import { ProductGridItemComponent } from './views/product-grid-item/product-grid-item.component';
+import { FilterComponent } from './ui/filter/filter.component';
 
 
 
@@ -22,7 +23,8 @@ import { ProductGridItemComponent } from './views/product-grid-item/product-grid
     SearchBarComponent,
     ProductSelectionComponent,
     ProductGridComponent,
-    ProductGridItemComponent
+    ProductGridItemComponent,
+    FilterComponent
   ],
   imports: [
     CommonModule,

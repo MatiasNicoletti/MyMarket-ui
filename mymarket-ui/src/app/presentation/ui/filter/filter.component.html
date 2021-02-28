@@ -1,1 +1,10 @@
-<p>filter works!</p>
+<section class="filter filter-active" 
+    [ngClass]="{'filter-active': isOpen, 
+                'filter-not-active': !isOpen}" >
+    <div class="filter-container filter-container-active" 
+        [ngClass]="{'filter-container-active': isOpen, 
+                    'filter-container-not-active': !isOpen}">
+ 
+    </div>
+    <div class="filter-bg-dark" (click)="switchFilter()" ></div>
+</section>

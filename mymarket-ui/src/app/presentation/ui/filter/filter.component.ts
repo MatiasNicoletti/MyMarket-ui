@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonService } from 'src/app/services/common/common.service';
 
 @Component({
   selector: 'app-filter',
@@ -6,10 +7,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./filter.component.css']
 })
 export class FilterComponent implements OnInit {
+  isOpen: boolean = false;
 
-  constructor() { }
+  constructor(
+    private commonService: CommonService
+  ) { }
 
   ngOnInit(): void {
+    this.commonService.aClickedEvent
+      .subscribe((data: boolean) => {
+        this.isOpen = data;
+        console.log('filter cambio');
+      });
   }
 
+  switchFilter() {
+    this.isOpen = false;
+  }
 }

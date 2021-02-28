@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { PresentationModule } from './presentation/presentation.module';
 import { RouterModule } from '@angular/router';
+import { CommonService } from './services/common/common.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { RouterModule } from '@angular/router';
     AppRoutingModule
   ],
   exports: [RouterModule],
-  providers: [],
+  providers: [CommonService],
   entryComponents: [AppComponent],
   bootstrap: [AppComponent]
 })
