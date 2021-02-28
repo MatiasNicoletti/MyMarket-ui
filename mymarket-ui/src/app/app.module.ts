@@ -7,6 +7,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { PresentationModule } from './presentation/presentation.module';
 import { RouterModule } from '@angular/router';
 import { CommonService } from './services/common/common.service';
+import { CoreModule } from './core/core.module';
+import { ServicesModule } from './services/services.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { CommonService } from './services/common/common.service';
     BrowserModule,
     CommonModule,
     PresentationModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CoreModule,
+    ServicesModule
   ],
   exports: [RouterModule],
   providers: [CommonService],
