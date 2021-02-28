@@ -34,7 +34,6 @@ export class SearchBarComponent implements OnInit {
   }
 
   onClick() {
-    console.log('abrir filter');
     this.commonService.emitData(true);
   }
 }

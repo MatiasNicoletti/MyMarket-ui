@@ -11,6 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ProductGridComponent } from './views/product-grid/product-grid.component';
 import { ProductGridItemComponent } from './views/product-grid-item/product-grid-item.component';
 import { FilterComponent } from './ui/filter/filter.component';
+import { OfferComponent } from './views/offer/offer.component';
 
 
 
@@ -24,7 +25,8 @@ import { FilterComponent } from './ui/filter/filter.component';
     ProductSelectionComponent,
     ProductGridComponent,
     ProductGridItemComponent,
-    FilterComponent
+    FilterComponent,
+    OfferComponent
   ],
   imports: [
     CommonModule,

@@ -17,7 +17,6 @@ export class FilterComponent implements OnInit {
     this.commonService.aClickedEvent
       .subscribe((data: boolean) => {
         this.isOpen = data;
-        console.log('filter cambio');
       });
   }
 

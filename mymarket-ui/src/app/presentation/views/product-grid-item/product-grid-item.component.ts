@@ -17,5 +17,6 @@ export class ProductGridItemComponent implements OnInit {
 
   onClick(){
     // this.router.navigate(['producto'])
+    // console.log('aca')
   }
 }
