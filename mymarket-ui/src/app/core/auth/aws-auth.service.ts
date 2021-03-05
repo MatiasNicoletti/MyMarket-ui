@@ -8,8 +8,8 @@ export class AwsAuthService {
 
   constructor() {
     Auth.configure({
-      userPoolId: 'us-east-1_yDfTFoLuS',
-      userPoolWebClientId: '6l0heshj0qfjp51lpitpp4bbf4',
+      userPoolId: 'us-east-1_ew3IKw5Sl',
+      userPoolWebClientId: 'q2n9pbdvrqc4qm8ht3tbtqhl8',
       //necesitamos proveer estos campos si usamos un metodo de autenticacion federado (google, facebook, etc.)
       oauth: {
         region: 'us-east-1',
