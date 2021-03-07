@@ -1,0 +1,65 @@
+.offer-container{
+    width: 80%;
+    margin: auto;
+    
+}
+
+.offer-information{
+    display: grid;
+    grid-template-columns: 40% 60%;
+    // background-color: red;
+    border-top: 1px solid $color-base-grey-light;
+    border-bottom: 1px solid $color-base-grey-light;
+}
+
+.offer-container-left{
+
+    &-img{
+        width: 100%;
+        border-right: 1px solid $color-base-grey-light;
+        margin-bottom: -0.3rem;
+    }
+}
+
+.offer-container-right{
+    background-color: $color-base-grey-light;
+    padding: 5rem 0 0 3rem;
+    *{
+        margin-top: 1rem;
+    }
+    .offer-name{
+        font-size: $font-size-large;
+        font-weight: 400;
+    }
+    .old-price{
+        *{
+            font-size: $font-size-medium;
+            text-decoration: line-through;
+        }
+    }
+    .final-price{
+        display: flex;
+        *{
+            font-size: $font-size-large-micro;
+            
+        }
+    }
+    .business-info{
+        display: flex; 
+
+        &-find{
+            font-size: $font-size-medium;
+            margin-right: 0.5rem;
+        }
+        &-name{
+            font-size: $font-size-medium;
+            font-weight: 500;
+            margin-right: 2rem;
+        }
+        &-map{
+            font-size: $font-size-medium;
+            color: $color-base-green;
+            font-weight: 600;
+        }
+    }
+}
