@@ -9,6 +9,7 @@ import { RouterModule } from '@angular/router';
 import { CommonService } from './services/common/common.service';
 import { CoreModule } from './core/core.module';
 import { ServicesModule } from './services/services.module';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ServicesModule } from './services/services.module';
     PresentationModule,
     AppRoutingModule,
     CoreModule,
-    ServicesModule
+    ServicesModule,
+    AgmCoreModule.forRoot({apiKey:'AIzaSyAuX3B8s_MZwVGLRm5cXrBxn5FNfqzSYKA'})
   ],
   exports: [RouterModule],
   providers: [CommonService],

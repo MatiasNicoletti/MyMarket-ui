@@ -23,7 +23,9 @@
         </div>
     </div>
     <div class="business-information">
-        <div id="business-map" class="business-map"></div>
+        <agm-map style="height: 300px;" [latitude]="" [longitude]="">
+            <agm-marker [latitude]="" [longitude]=""></agm-marker>
+          </agm-map>
         <div class="product-description">
             <p>Descripción</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus soluta nam aut placeat magni. Quo.</p>

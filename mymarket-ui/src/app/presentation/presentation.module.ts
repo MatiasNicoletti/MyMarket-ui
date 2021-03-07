@@ -12,6 +12,7 @@ import { ProductGridComponent } from './views/product-grid/product-grid.componen
 import { ProductGridItemComponent } from './views/product-grid-item/product-grid-item.component';
 import { FilterComponent } from './ui/filter/filter.component';
 import { OfferComponent } from './views/offer/offer.component';
+import { AgmCoreModule } from '@agm/core';
 
 
 
@@ -31,7 +32,8 @@ import { OfferComponent } from './views/offer/offer.component';
   imports: [
     CommonModule,
     RouterModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AgmCoreModule.forRoot({apiKey:'AIzaSyAuX3B8s_MZwVGLRm5cXrBxn5FNfqzSYKA'})
   ]
 })
 export class PresentationModule { }
