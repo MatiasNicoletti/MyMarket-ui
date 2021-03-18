@@ -1,10 +1,50 @@
-<section class="filter filter-active" 
-    [ngClass]="{'filter-active': isOpen, 
-                'filter-not-active': !isOpen}" >
-    <div class="filter-container filter-container-active" 
-        [ngClass]="{'filter-container-active': isOpen, 
+<section class="filter filter-active" [ngClass]="{'filter-active': isOpen, 
+                'filter-not-active': !isOpen}">
+    <div class="filter-container filter-container-active" [ngClass]="{'filter-container-active': isOpen, 
                     'filter-container-not-active': !isOpen}">
- 
+        <form [formGroup]="filterForm" class="filter-form">
+            <div class="filter-row">
+                <h3 class="filter-row-title">Ubicación</h3>
+                <div class="filter-row-options">
+                    <div class="filter-row-options-row">
+                        <label class="filter-row-options-desc" for="ubication">Cerca (100 mts - 1 km)</label>
+                        <input formControlName="ubication" type="checkbox" name="ubication" id="ubication">
+                    </div>
+                    <div class="filter-row-options-row">
+                        <label class="filter-row-options-desc" for="ubication2">Lejos (+1km)</label>
+                        <input formControlName="ubication2" type="checkbox" name="ubication2" id="ubication2">
+                    </div>
+                    <div class="filter-row-options-row">
+                        <label class="filter-row-options-desc" for="ubication3">Desde</label>
+                        <input formControlName="ubication3" class="input-medium" type="text" name="ubication3" id="ubication3">
+                        <label class="filter-row-options-desc" for="ubication4">Hasta</label>
+                        <input formControlName="ubication4" class="input-medium" type="text" name="ubication4" id="ubication4">
+                    </div>
+                </div>
+            </div>
+            <div class="filter-row">
+                <h3 class="filter-row-title">Categoría</h3>
+                <div class="filter-row-options">
+                    <div class="filter-row-options-row">
+                        <label class="filter-row-options-desc" for="bebidas">Bebidas</label>
+                        <input formControlName="bebidas" type="checkbox" name="bebidas" id="bebidas">
+                    </div>
+                    <div class="filter-row-options-row">
+                        <label class="filter-row-options-desc" for="perfumeria">Perfumería</label>
+                        <input formControlName="perfumeria" type="checkbox" name="perfumeria" id="perfumeria">
+                    </div>
+                    <div class="filter-row-options-row">
+                        <label class="filter-row-options-desc" for="verduras">Verduras</label>
+                        <input formControlName="verduras" type="checkbox" name="verduras" id="verduras">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="filter-actions">
+                <button class="btn-secondary btn-medium">Limpiar</button>
+                <button class="btn-action btn-medium" (click)="onSubmit()">Buscar</button>
+            </div>
+        </form>
     </div>
-    <div class="filter-bg-dark" (click)="switchFilter()" ></div>
+    <div class="filter-bg-dark" (click)="switchFilter()"></div>
 </section>

@@ -27,6 +27,37 @@ $filter-bg-black-shadow: 0.15;
     }
 }
 
+.filter-form{
+    margin: 2rem 1rem;
+}
+
+.filter-row{
+    margin-bottom: 3rem;
+    &-title{
+        font-size: $font-size-medium-extra;
+        font-weight: 400;
+    }
+
+    &-options{
+        margin-left: 5rem;
+        &-row{
+            display: flex;
+            margin: 1rem 0;
+            justify-content: space-between;
+            & label{
+                font-size: $font-size-medium;
+            }
+            & input{
+                margin-right: 1rem;
+            }
+        }
+    }
+}
+
+.filter-actions{
+    margin: auto;
+}
+
 .filter-active {
     opacity: 1;
     display: block;
