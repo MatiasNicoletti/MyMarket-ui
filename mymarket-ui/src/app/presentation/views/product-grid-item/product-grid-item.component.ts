@@ -3,11 +3,10 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-grid-item',
-  templateUrl: './product-grid-item.component.html',
-  styleUrls: ['./product-grid-item.component.css']
+  templateUrl: './product-grid-item.component.html'
 })
 export class ProductGridItemComponent implements OnInit {
-
+  isDiscountPrice = true;
   constructor(
     private router: Router
   ) { }

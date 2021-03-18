@@ -1,6 +1,7 @@
 .product-grid{
     display: grid;
-    grid-template-columns: repeat(auto-fit, 30rem);
+    grid-template-columns: repeat(auto-fit, $product-grid-size-normal);
     grid-row-gap: 20px;
     grid-column-gap: 10px;
+    justify-content: center;
 }

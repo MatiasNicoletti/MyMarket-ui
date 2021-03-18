@@ -8,7 +8,7 @@ import { CommonService } from 'src/app/services/common/common.service';
   templateUrl: './filter.component.html'
 })
 export class FilterComponent implements OnInit {
-  isOpen: boolean = true;
+  isOpen: boolean = false;
   filterForm: FormGroup;
 
   constructor(
