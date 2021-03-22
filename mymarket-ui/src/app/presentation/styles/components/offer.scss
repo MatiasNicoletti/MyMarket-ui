@@ -1,3 +1,4 @@
+$margin-top-common: 3rem;
 .offer-container{
     width: 80%;
     margin: auto;
@@ -23,15 +24,15 @@
 
 .offer-container-right{
     background-color: $color-base-grey-light;
-    padding: 5rem 0 0 3rem;
-    *{
-        margin-top: 1rem;
-    }
+    padding: 2rem 0 0 3rem;
+    position: relative;
+    z-index: 10;
     .offer-name{
-        font-size: $font-size-large;
+        font-size: $font-size-large-micro;
         font-weight: 400;
     }
     .old-price{
+        margin-top: $margin-top-common;
         *{
             font-size: $font-size-medium;
             text-decoration: line-through;
@@ -39,14 +40,22 @@
     }
     .final-price{
         display: flex;
+        margin-top: 1rem;
         *{
-            font-size: $font-size-large-micro;
+            font-size: $font-size-large-extra;
             
+        }
+        &-offer{
+            color: $color-base-green;
+            margin-left: 1rem;
+            font-weight: 400;
+            font-size: $font-size-large-micro;
+            // align-self: flex-end;
         }
     }
     .business-info{
         display: flex; 
-
+        margin-top: $margin-top-common;
         &-find{
             font-size: $font-size-medium;
             margin-right: 0.5rem;
@@ -64,6 +73,32 @@
     }
 }
 
-.business-information{
-    
+.product-description{
+    margin-top: $margin-top-common;
+    &-header{
+        font-size: $font-size-large-micro;
+        font-weight: 400;
+    }
+    &-content{
+        margin-top: 1rem;
+        font-size: $font-size-medium;
+    }
+}
+
+.offer-actions{
+    position: relative;
+    display: flex;
+    & button{
+        z-index: 50;
+    }
+    & .button-cart{
+        
+        &-operation-subt{
+            // margin-left: 2rem;
+        }
+        &-operation-add{
+            margin-left: 4rem;
+        }
+    }
+
 }

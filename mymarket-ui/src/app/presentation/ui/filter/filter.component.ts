@@ -38,7 +38,7 @@ export class FilterComponent implements OnInit {
     queryParams = queryParams.join(',');
     console.log(queryParams)
 
-    this.router.navigate(['ofertas'], {queryParams: {categorias: queryParams}});
+    this.router.navigate(['ofertas'], {queryParams: {categorias: queryParams, producto: 'harina'}});
   }
 
   private initForm() {

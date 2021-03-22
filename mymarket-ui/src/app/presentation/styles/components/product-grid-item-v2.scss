@@ -1,9 +1,11 @@
-$margin-common: 0.5rem 0 1.2rem 1.2rem;
+$margin-common: 1rem 1.2rem 1.2rem 1.2rem;
 
 .product-grid-item-container {
-    border: 1px solid $color-base-grey;
-    width: $product-grid-size-normal;
+    border: 1px solid $color-base-grey-light;
+    width: $product-griditem-width-normal;
+    height: $product-griditem-heigth-normal;
     cursor: pointer;
+    background-color: $color-base-white;
     & .offers-number {
         position: absolute;
         font-size: $font-size-medium-micro;
@@ -15,17 +17,18 @@ $margin-common: 0.5rem 0 1.2rem 1.2rem;
 }
 .product-grid-item {
     word-wrap: break-word;
-
+    
     & img {
         // height: 100%;
         width: 100%;
+        border-bottom: 1px solid $color-base-grey-light;
     }
 
     &-info {
-        background-color: $color-base-grey-light-2;
+        
 
         &-title {
-            font-size: $font-size-medium;
+            font-size: $font-size-medium-extra;
             font-weight: lighter;
             // max-height: 3rem;
             overflow: hidden;
@@ -40,6 +43,7 @@ $margin-common: 0.5rem 0 1.2rem 1.2rem;
             &-old{
                 color: $color-base-grey;
                 font-size: $font-size-medium;
+                text-decoration: line-through;
             }
             &-new{
                 
@@ -48,6 +52,10 @@ $margin-common: 0.5rem 0 1.2rem 1.2rem;
         }
         &-action{
             margin:$margin-common;
+
+            & button{
+                width: 100%;
+            }
         }
     }
 

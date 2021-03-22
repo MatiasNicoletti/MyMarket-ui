@@ -13,8 +13,9 @@ import { ProductGridItemComponent } from './views/product-grid-item/product-grid
 import { FilterComponent } from './ui/filter/filter.component';
 import { OfferComponent } from './views/offer/offer.component';
 import { AgmCoreModule } from '@agm/core';
-
-
+import { SignUpComponent } from './views/signin/signup.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatSliderModule } from '@angular/material/slider';
 
 @NgModule({
   declarations: [
@@ -27,13 +28,15 @@ import { AgmCoreModule } from '@agm/core';
     ProductGridComponent,
     ProductGridItemComponent,
     FilterComponent,
-    OfferComponent
+    OfferComponent,
+    SignUpComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
     ReactiveFormsModule,
-    AgmCoreModule.forRoot({apiKey:'AIzaSyAuX3B8s_MZwVGLRm5cXrBxn5FNfqzSYKA'})
+    AgmCoreModule.forRoot({apiKey:'AIzaSyAuX3B8s_MZwVGLRm5cXrBxn5FNfqzSYKA'}),
+    MatFormFieldModule
   ]
 })
 export class PresentationModule { }

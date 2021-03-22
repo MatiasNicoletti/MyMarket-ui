@@ -15,7 +15,7 @@ export class ProductSelectionComponent implements OnInit {
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
       this.productWanted = params['producto'];
-      console.log(this.productWanted)
+      // console.log(this.productWanted)
     });
   }
 
