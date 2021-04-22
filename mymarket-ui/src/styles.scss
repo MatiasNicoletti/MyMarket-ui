@@ -1,9 +1,11 @@
+
 @import './app/presentation/styles/abstracts/typography.scss';
 @import './app/presentation/styles/base/container.scss';
 @import './app/presentation/styles/abstracts/colors.scss';
 @import './app/presentation/styles/abstracts/variables.scss';
 @import './app/presentation/styles/components/components.base.scss';
 @import './app/presentation/styles/layout/layout.base.scss';
-
+@import './theme.scss'; 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+  

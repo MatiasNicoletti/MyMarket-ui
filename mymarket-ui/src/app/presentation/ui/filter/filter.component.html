@@ -4,21 +4,32 @@
                     'filter-container-not-active': !isOpen}">
         <form [formGroup]="filterForm" class="filter-form">
             <div class="filter-row">
+                <mat-form-field class="example-full-width">
+                    <input  matInput formControlName="productName" placeholder="Ex. Pizza" value="{{productName}}" [errorStateMatcher]="matcher">
+                </mat-form-field>
+            </div>
+            <div class="filter-row">
                 <h3 class="filter-row-title">Ubicación</h3>
                 <div class="filter-row-options">
                     <div class="filter-row-options-row">
                         <label class="filter-row-options-desc" for="ubication">Cerca (100 mts - 1 km)</label>
-                        <input formControlName="ubication" type="checkbox" name="ubication" id="ubication">
+                        <mat-checkbox formControlName="ubication" class="example-margin"></mat-checkbox>
                     </div>
                     <div class="filter-row-options-row">
                         <label class="filter-row-options-desc" for="ubication2">Lejos (+1km)</label>
-                        <input formControlName="ubication2" type="checkbox" name="ubication2" id="ubication2">
+                        <mat-checkbox formControlName="ubication2" class="example-margin"></mat-checkbox>
                     </div>
                     <div class="filter-row-options-row">
-                        <label class="filter-row-options-desc" for="ubication3">Desde</label>
-                        <input formControlName="ubication3" class="input-medium" type="text" name="ubication3" id="ubication3">
+                        <!-- <label class="filter-row-options-desc" for="ubication3">Desde</label>
+                        <input formControlName="ubication3" class="input-small" type="text" name="ubication3" id="ubication3">
                         <label class="filter-row-options-desc" for="ubication4">Hasta</label>
-                        <input formControlName="ubication4" class="input-medium" type="text" name="ubication4" id="ubication4">
+                        <input formControlName="ubication4" class="input-small" type="text" name="ubication4" id="ubication4"> -->
+                        <mat-form-field class="">
+                            <input matInput placeholder="Desde" value="">
+                        </mat-form-field>
+                        <mat-form-field class="">
+                            <input matInput placeholder="Hasta" value="">
+                        </mat-form-field>
                     </div>
                 </div>
             </div>
@@ -27,19 +38,19 @@
                 <div class="filter-row-options">
                     <div class="filter-row-options-row">
                         <label class="filter-row-options-desc" for="bebidas">Bebidas</label>
-                        <input formControlName="bebidas" type="checkbox" name="bebidas" id="bebidas">
+                        <mat-checkbox formControlName="bebidas" class="example-margin"></mat-checkbox>
                     </div>
                     <div class="filter-row-options-row">
-                        <label class="filter-row-options-desc" for="perfumeria">Perfumería</label>
-                        <input formControlName="perfumeria" type="checkbox" name="perfumeria" id="perfumeria">
+                        <label class="filter-row-options-desc" for="almacen">Almacen</label>
+                        <mat-checkbox formControlName="almacen" class="example-margin"></mat-checkbox>
                     </div>
                     <div class="filter-row-options-row">
                         <label class="filter-row-options-desc" for="verduras">Verduras</label>
-                        <input formControlName="verduras" type="checkbox" name="verduras" id="verduras">
+                        <mat-checkbox formControlName="verduras" class="example-margin"></mat-checkbox>
                     </div>
                 </div>
             </div>
-            
+
             <div class="filter-actions">
                 <button class="btn-secondary btn-medium">Limpiar</button>
                 <button class="btn-action btn-medium" (click)="onSubmit()">Buscar</button>

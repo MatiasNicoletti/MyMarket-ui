@@ -10,7 +10,8 @@ import { CommonService } from './services/common/common.service';
 import { CoreModule } from './core/core.module';
 import { ServicesModule } from './services/services.module';
 import { AgmCoreModule } from '@agm/core';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     CoreModule,
     ServicesModule,
     AgmCoreModule.forRoot({apiKey:'AIzaSyAuX3B8s_MZwVGLRm5cXrBxn5FNfqzSYKA'}),
-    NoopAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   exports: [RouterModule],
   providers: [CommonService],

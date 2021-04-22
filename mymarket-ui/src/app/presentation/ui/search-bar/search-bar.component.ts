@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CommonService } from 'src/app/services/common/common.service';
+import { OfferService } from 'src/app/services/offer/offer.service';
 
 @Component({
   selector: 'app-search-bar',
@@ -9,22 +10,34 @@ import { CommonService } from 'src/app/services/common/common.service';
 })
 export class SearchBarComponent implements OnInit {
   searchForm: FormGroup;
-
+  productName: string;
   constructor(
     private router: Router,
-    private commonService: CommonService
+    private commonService: CommonService,
+    private offersService: OfferService
   ) { }
 
   ngOnInit(): void {
     this.initForm();
   }
 
+  onInputChange(event){
+    
+    this.productName = event.target.value;
+    
+    // this.commonService.emitData({productName:event.target.value});
+  }
+
   onSubmit(){
     if(!this.searchForm.valid){
       return
     }
-    console.log(this.searchForm);
-    this.router.navigate(['ofertas'], {queryParams: {producto: this.searchForm.value.search}});
+    console.log(this.searchForm.value.search);
+    this.router.navigate(['offer'], {queryParams: {nombre: this.searchForm.value.search}});
+    this.offersService.getOffers();
+    this.router.routeReuseStrategy.shouldReuseRoute = function () {
+      return false;
+    };
   }
 
   private initForm(){
@@ -33,7 +46,8 @@ export class SearchBarComponent implements OnInit {
     })
   }
 
-  onClick() {
-    this.commonService.emitData(true);
+  onClickOpenFilter() {
+    console.log(this.productName);
+    this.commonService.emitData({openFilter: true, productName: this.productName});
   }
 }

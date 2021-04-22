@@ -33,13 +33,13 @@ $filter-bg-black-shadow: 0.15;
 
 .filter-row{
     margin-bottom: 3rem;
-    &-title{
+    & h3{
         font-size: $font-size-medium-extra;
-        font-weight: 400;
+        
     }
 
     &-options{
-        margin-left: 5rem;
+        margin-left: 3.5rem;
         &-row{
             display: flex;
             margin: 1rem 0;

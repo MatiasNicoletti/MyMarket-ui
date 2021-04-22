@@ -3,19 +3,30 @@
     border: none;
     cursor: pointer;
     color: $color-base-white;
-    border-radius: $border-radius-1;
-    font-weight: bold
+    
+    font-weight: 500;
 }
+
+
 
 .btn-action{
     @extend .btn;
     background-color: $color-base-green;
-    
+    border-radius: $border-radius-1;
 }
 
 .btn-secondary{
     @extend .btn;
     background-color: $color-base-grey;
+    border-radius: $border-radius-1;
+}
+
+.btn-bordered{
+    @extend .btn;
+    border:solid 1px $color-base-green;
+    background-color: transparent;
+    border-radius: $border-radius-1;
+    color: $color-base-green;
 }
 
 .btn-medium{
@@ -40,22 +51,33 @@
 }
 
 .button-cart{
+    position: relative;
     display: flex;
-
+    // background-color: $color-base-green;
+    border: 1px solid $color-base-green;
+    border-radius: $border-radius-1;
+    padding: 0 1rem;
     & .button-cart-value{
         position: absolute;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 1rem 5rem;
-        background-color: $color-base-green;
+        padding: 1rem 2.7rem;
+        color: $color-base-green;
+        font-weight: bolder
         
     }
 }
 
 .button-cart-operation{
     @extend .btn;
-    background-color: $color-base-green;
     padding: 1rem 1rem;
+    background-color: transparent;
     font-size: $font-size-medium;
+    // border: 1px solid black;
+}
+
+.btn-add-cart{
+    border-radius: $border-radius-2;
+}
+
+a{
+    text-decoration: none;
 }

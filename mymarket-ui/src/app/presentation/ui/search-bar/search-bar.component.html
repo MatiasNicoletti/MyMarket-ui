@@ -1,14 +1,15 @@
 <div class="search-bar">
     <form [formGroup]="searchForm">
         <div class="search-bar-filter">
-            <button class="btn-secondary btn-medium" (click)="onClick()">Filtrar</button>
+            <button class="btn-secondary btn-medium" (click)="onClickOpenFilter()">Filtrar</button>
         </div>
         <div class="search-bar-input">
             <input 
                 type="text" 
                 class="input-extra-large" 
-                placeholder="Ingresá el nombre de..."
-                formControlName="search"    
+                placeholder="Buscá productos..."
+                formControlName="search"
+                (change)="onInputChange($event)"
             >
         </div>
         <div class="search-bar-action">

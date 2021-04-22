@@ -3,21 +3,23 @@
         <p>1,1 km</p>
     </div>
     <section class="product-grid-item">
-        <img src="../../../../assets/img/7792180134516_02.jpg" alt="" class="product-grid-item-img">
+        <img *ngIf="offer.imageUrl" src={{offer.imageUrl.data}} alt="" class="product-grid-item-img">
         <div class="product-grid-item-info">
-            <h4 class="product-grid-item-info-title">Harina Pureza Refinada
-                
+            <h4 class="product-grid-item-info-title">{{offer.description}}
             </h4>
             <div class="product-grid-item-info-price" *ngIf="isDiscountPrice;else percentageDiscount">
-                <p class="product-grid-item-info-price-old">$199</p>
-                <p class="product-grid-item-info-price-new">$99</p>
+                <p class="product-grid-item-info-price-old">${{offer.oldPrice}}</p>
+                <div class="product-grid-item-info-price-new">
+                    <p class="product-grid-item-info-price-new-number">${{offer.price}}</p>
+                    <p class="product-grid-item-info-price-new-dto">%{{offer.discount.toFixed(0)}}</p>
+                </div>
             </div>
             <ng-template class="product-grid-item-info-price" #percentageDiscount>
                 <p>$1500</p>
                 <p>$99</p>
             </ng-template>
             <div class="product-grid-item-info-action">
-                <button class="btn-action btn-small">Agregar al carrito</button>
+                <button class="btn-bordered btn-small btn-add-cart">Agregar al carrito</button>
             </div>
         </div>
     </section>

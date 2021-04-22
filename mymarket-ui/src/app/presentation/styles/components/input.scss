@@ -4,16 +4,24 @@
     background-color: $color-base-white;
 }
 
-.input-medium{
+.input-small{
     @extend .input;
     border-radius: $border-radius-1;
     border: 1px solid $color-base-grey;
     text-align: left;
-    padding: 0.5rem 0.5rem;
+    padding: 0.5rem;
     width: 5rem;
     font-size: $font-size-medium-micro;
 }
-
+.input-filter-product-name{
+    @extend .input;
+    border-radius: $border-radius-1;
+    border: 1px solid $color-base-grey;
+    text-align: left;
+    padding: 1.5rem 0.5rem;
+    width: 100%;
+    font-size: $font-size-medium;
+}
 .input-extra-large{
     @extend .input;
     border-radius: $border-radius-1;

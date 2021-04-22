@@ -1,13 +1,13 @@
 $margin-top-common: 3rem;
 .offer-container{
-    width: 80%;
-    margin: auto;
-    
+    width: 75%;
+    margin: 5rem auto;
+    border-left: 1px solid $color-base-grey-light;
 }
 
 .offer-information{
     display: grid;
-    grid-template-columns: 40% 60%;
+    grid-template-columns: 30% 70%;
     // background-color: red;
     border-top: 1px solid $color-base-grey-light;
     border-bottom: 1px solid $color-base-grey-light;
@@ -18,7 +18,7 @@ $margin-top-common: 3rem;
     &-img{
         width: 100%;
         border-right: 1px solid $color-base-grey-light;
-        margin-bottom: -0.3rem;
+        margin-bottom: -0.4rem;
     }
 }
 
@@ -88,16 +88,18 @@ $margin-top-common: 3rem;
 .offer-actions{
     position: relative;
     display: flex;
+    margin-top: $margin-top-common;
     & button{
         z-index: 50;
     }
     & .button-cart{
         
         &-operation-subt{
-            // margin-left: 2rem;
+            color: $color-base-green;
         }
         &-operation-add{
-            margin-left: 4rem;
+            margin-left: 1rem;
+            color: $color-base-green;
         }
     }
 

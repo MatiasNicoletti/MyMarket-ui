@@ -14,9 +14,12 @@ import { FilterComponent } from './ui/filter/filter.component';
 import { OfferComponent } from './views/offer/offer.component';
 import { AgmCoreModule } from '@agm/core';
 import { SignUpComponent } from './views/signin/signup.component';
-import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatSliderModule } from '@angular/material/slider';
-
+import {MatInputModule} from '@angular/material/input';
+import {MatStepperModule} from '@angular/material/stepper';
+import { MatButtonModule } from '@angular/material/button';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { HomeContentComponent } from './ui/home-content/home-content.component';
 @NgModule({
   declarations: [
     NavbarComponent,
@@ -29,14 +32,20 @@ import { MatSliderModule } from '@angular/material/slider';
     ProductGridItemComponent,
     FilterComponent,
     OfferComponent,
-    SignUpComponent
+    SignUpComponent,
+    HomeContentComponent,
+     
   ],
   imports: [
     CommonModule,
     RouterModule,
     ReactiveFormsModule,
-    AgmCoreModule.forRoot({apiKey:'AIzaSyAuX3B8s_MZwVGLRm5cXrBxn5FNfqzSYKA'}),
-    MatFormFieldModule
+    MatSliderModule,
+    MatInputModule,
+    MatStepperModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    AgmCoreModule.forRoot({apiKey:'AIzaSyAuX3B8s_MZwVGLRm5cXrBxn5FNfqzSYKA'})
   ]
 })
 export class PresentationModule { }

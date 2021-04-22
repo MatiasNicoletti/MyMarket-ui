@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AwsAuthService } from './auth/aws-auth.service';
+import { HttpService } from './http/http.service';
 
 
 
@@ -10,7 +11,8 @@ import { AwsAuthService } from './auth/aws-auth.service';
     CommonModule
   ],
   providers: [
-    AwsAuthService
+    AwsAuthService,
+    HttpService
   ]
 })
 export class CoreModule { }

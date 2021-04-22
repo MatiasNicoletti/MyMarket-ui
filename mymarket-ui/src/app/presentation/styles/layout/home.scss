@@ -16,3 +16,30 @@
         align-items: center;
     }
 }
+
+.home-content{
+    display: flex;
+    margin: 10rem 10rem 0 7rem;
+    justify-content: space-between;
+    &-svg{
+        width: 30%;
+    }
+
+    &-text{
+        background-color: $color-base-grey-light;
+        border-radius: $border-radius-3;
+        padding: 2rem 3rem;
+        width: 50%;
+        height: 100%;
+        &-row{
+            margin: 4rem 0;
+            & h3{
+                font-size: $font-size-large-micro;
+                font-weight: 500 !important;
+            }
+            & p{
+                margin-top: 1rem;
+            }
+        }
+    }
+}

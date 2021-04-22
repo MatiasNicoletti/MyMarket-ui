@@ -36,7 +36,7 @@ export class AwsAuthService {
     console.log('llego al listen')
     Hub.listen("auth", async ({ payload: { event, data } }) => {
       //tanto en eventos de signIn y signOut cargamos al current user y hacemos update a la UI
-      console.log(event, data)
+      // console.log(event, data)
       switch (event) {
         case "signIn":
           console.log('signin');
