@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UserService } from './user/user.service';
 import { OfferService } from './offer/offer.service';
+import { BusinessService } from './business/business.service';
 
 
 
@@ -12,7 +13,8 @@ import { OfferService } from './offer/offer.service';
   ],
   providers: [
     UserService,
-    OfferService
+    OfferService,
+    BusinessService
   ]
 })
 export class ServicesModule { }

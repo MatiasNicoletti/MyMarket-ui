@@ -17,12 +17,9 @@ export class ProductGridComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
-      console.log(params)
       this.productWanted = params.producto;
-      
     })
-    this.offerService.getOffers(this.router.url).subscribe((response:any) => {
-      console.log(response.data);
+    this.offerService.getOffers().subscribe((response:any) => {
       this.offers = response.data;
     });
   }

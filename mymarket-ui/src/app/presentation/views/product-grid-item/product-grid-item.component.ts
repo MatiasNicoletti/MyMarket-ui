@@ -9,19 +9,22 @@ import { OfferService } from 'src/app/services/offer/offer.service';
 export class ProductGridItemComponent implements OnInit {
   isDiscountPrice = true;
   @Input('offer') offer;
+  imaurl: string;
   constructor(
     private router: Router,
     private offerService: OfferService
   ) { }
 
   ngOnInit(): void {
-    
     this.offer.discount = (this.offer.price*100)/this.offer.oldPrice;
-    this.offerService.getPhotoByProductId(this.offer.productID).subscribe(response => {
+    this.imaurl = this.offer.imageProduct;
+    console.log(this.imaurl)
+    /*this.offerService.getPhotoByProductId(this.offer.idProduct).subscribe(response => {
       this.offer.imageUrl = response;
+     
       console.log(this.offer)
-    });
-    console.log(this.offer)
+    });*/
+    // console.log(this.offer)
   }
 
   onClick(){

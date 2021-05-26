@@ -1,5 +1,5 @@
 
 export const url = {
-    // OFFER_URL: 'http://54.146.184.225:8080/offer/',
-    OFFER_URL: 'http://localhost:3000/authors',
+    // OFFER_URL: 'http://54.83.240.56:8080',
+    OFFER_URL: 'http://localhost:4000',
 } 

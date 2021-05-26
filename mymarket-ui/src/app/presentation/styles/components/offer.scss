@@ -104,3 +104,30 @@ $margin-top-common: 3rem;
     }
 
 }
+
+.offer-list-container{
+    width: 100%;
+    margin: 5rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem;
+}
+
+.bussiness-form-list-container{
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+}
+
+.bussiness-form-list{
+    list-style: none;
+}
+
+.bussiness-form-list-item{
+    margin-left: 2rem;
+    margin-top: 2rem;
+}
+
+.offer-inputs-row{
+    margin-top: 2rem;
+}

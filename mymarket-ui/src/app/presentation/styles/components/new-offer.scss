@@ -1,0 +1,17 @@
+.offer-form-container {
+    // background-color: $color-base-grey-light;
+    width: 75%;
+    margin: 5rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+}
+
+.offer-form-img{
+    height: 35rem;
+}
+
+.offer-form-row{
+    display: flex;
+}

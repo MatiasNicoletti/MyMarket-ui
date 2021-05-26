@@ -11,12 +11,31 @@ export class HttpService {
     private http: HttpClient
   ) { }
 
-  getOffers(query?){
-    return query? this.http.get(url.OFFER_URL + query) : this.http.get(url.OFFER_URL);
+  postOffer(offer){
+    return this.http.post(url.OFFER_URL + '/offer', offer);
   }
 
-  getPhotoByProductId(productID){
+  getOffers(){
+    return this.http.get(url.OFFER_URL  + '/offer');
+  }
 
-    return this.http.get('http://localhost:3000/authors/product/id/'+productID);
+  getOffersByUserId(){
+    return this.http.get(url.OFFER_URL  + '/offer');
+  }
+
+  getBranchesByUserId(userId:number){
+    return this.http.get(url.OFFER_URL + '/business/branches/' + userId);
+  }
+
+  getProduct(name:string){
+    return this.http.get(url.OFFER_URL + '/offer/product/name/' + name);
+  }
+
+  postBusiness(stores){
+    return this.http.post(url.OFFER_URL + '/business', stores);
+  }
+
+  getUserIdByEmail(email:string){
+    return this.http.get(url.OFFER_URL + '/business/user/' + email);
   }
 }

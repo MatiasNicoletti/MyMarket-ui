@@ -3,33 +3,31 @@
     border: none;
     cursor: pointer;
     color: $color-base-white;
-    
+
     font-weight: 500;
 }
 
-
-
-.btn-action{
+.btn-action {
     @extend .btn;
     background-color: $color-base-green;
     border-radius: $border-radius-1;
 }
 
-.btn-secondary{
+.btn-secondary {
     @extend .btn;
     background-color: $color-base-grey;
     border-radius: $border-radius-1;
 }
 
-.btn-bordered{
+.btn-bordered {
     @extend .btn;
-    border:solid 1px $color-base-green;
+    border: solid 1px $color-base-green;
     background-color: transparent;
     border-radius: $border-radius-1;
     color: $color-base-green;
 }
 
-.btn-medium{
+.btn-medium {
     padding: 1.2rem 4rem;
     font-size: $font-size-medium;
 
@@ -39,8 +37,7 @@
     }
 }
 
-
-.btn-small{
+.btn-small {
     padding: 1rem 4rem;
     font-size: $font-size-medium;
 
@@ -50,23 +47,22 @@
     }
 }
 
-.button-cart{
+.button-cart {
     position: relative;
     display: flex;
     // background-color: $color-base-green;
     border: 1px solid $color-base-green;
     border-radius: $border-radius-1;
     padding: 0 1rem;
-    & .button-cart-value{
+    & .button-cart-value {
         position: absolute;
         padding: 1rem 2.7rem;
         color: $color-base-green;
-        font-weight: bolder
-        
+        font-weight: bolder;
     }
 }
 
-.button-cart-operation{
+.button-cart-operation {
     @extend .btn;
     padding: 1rem 1rem;
     background-color: transparent;
@@ -74,10 +70,32 @@
     // border: 1px solid black;
 }
 
-.btn-add-cart{
+.btn-add-cart {
     border-radius: $border-radius-2;
 }
 
-a{
+a {
     text-decoration: none;
+}
+
+.add-store-map-btn {
+    @extend .btn-action;
+    position: absolute;
+    padding: 1rem 3rem;
+    transition: all 0.1s ease;
+    left: 36%;
+    opacity: 100%;
+    margin-top: 2rem;
+    -webkit-box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.07);
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.07);
+    font-size: $font-size-medium;
+    font-weight: bold;
+}
+
+.add-store-map-btn-active {
+    background-color: $color-base-green;
+}
+
+.add-store-map-btn-inactive {
+    background-color: $color-base-grey;
 }

@@ -1,0 +1,102 @@
+<app-header></app-header>
+<div class="offer-form-container">
+    <mat-horizontal-stepper [linear]="isLinear" #stepper>
+        <mat-step [stepControl]="offerForm" label="Información del Producto">
+            <form class="bussiness-form form-common" [formGroup]="offerForm">
+                <div class="bussiness-form-row bussiness-form-row-first">
+                    <!-- <mat-form-field>
+                        <mat-label>Nombre</mat-label>
+                        <input formControlName="productName" matInput>
+                    </mat-form-field>
+                    <button mat-raised-button color="primary" (keyup)="applyFilter($event)" (click)="onSearchProduct()">Buscar</button> -->
+                    <mat-form-field>
+                        <input matInput placeholder="Ingresa el nombre del producto" aria-label="State" [matAutocomplete]="auto"
+                            [formControl]="searchProductCtrl">
+                        <mat-autocomplete #auto="matAutocomplete">
+                            <mat-option *ngIf="isLoading" class="is-loading">Cargando...</mat-option>
+                            <ng-container *ngIf="!isLoading">
+                                <mat-option *ngFor="let product of filteredProducts" [value]="product.name">
+                                    <span><b>{{product.name}}</b></span>
+                                </mat-option>
+                            </ng-container>
+                        </mat-autocomplete>
+                    </mat-form-field>
+                   
+                </div>
+                <div class="offer-form-row">
+                    <img class="offer-form-img" *ngIf="product" [src]="product.image">
+                    <h4 *ngIf="product">{{product.name}}</h4>
+                </div>
+                <div class="bussiness-form-row">
+                    <div>
+                        <button mat-raised-button color="primary" matStepperNext>Siguiente</button>
+                    </div>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step [stepControl]="offerForm" label="Información de la Oferta">
+            <form class="bussiness-form form-common" [formGroup]="offerForm">
+                <div class="bussiness-form-row bussiness-form-row-first">
+                    <mat-radio-group aria-label="Select an option">
+                        <!-- <mat-radio-button (click)="onChangeOfferType()" value="1">Descuento</mat-radio-button> -->
+                        <!-- <mat-radio-button style="margin-left: 2rem;" (click)="onChangeOfferType()" value="2">Promoción</mat-radio-button> -->
+                    </mat-radio-group>
+                </div>
+                <div class="bussiness-form-row offer-inputs-row">
+                    <mat-form-field class="input-20">
+                        <mat-label>Precio</mat-label>
+                        <span matPrefix>$ &nbsp;</span>
+                        <input formControlName="oldPrice" matInput>
+                    </mat-form-field>
+                    <!-- <div *ngIf="offerType == 'discount'"> -->
+                    <div>
+                        <mat-form-field class="input-20">
+                            <mat-label>Descuento</mat-label>
+                            <span matPrefix>% &nbsp;</span>
+                            <input formControlName="discount" matInput>
+                        </mat-form-field>
+                    </div>
+                    <div *ngIf="offerType == 'promotion'">
+
+                    </div>
+
+                </div>
+            </form>
+            <div>
+                <button mat-raised-button matStepperPrevious>Atrás</button>
+                <button mat-raised-button color="primary" matStepperNext>Siguiente</button>
+            </div>
+        </mat-step>
+        <mat-step [stepControl]="offerForm" label="Sucursales">
+            <div>
+                <div class="bussiness-form-list-container">
+                    <span class="example-list-section">
+                        <mat-checkbox class="example-margin" [checked]="allComplete" [color]="storesInfo.color"
+                            [indeterminate]="someComplete()" (change)="setAll($event.checked)">
+                            {{storesInfo.name}}
+                        </mat-checkbox>
+                    </span>
+                    <span class="example-list-section">
+                        <ul class="bussiness-form-list">
+                            <li *ngFor="let singleStore of storesInfo.stores" class="bussiness-form-list-item">
+                                <mat-checkbox [(ngModel)]="singleStore.selected" [color]="singleStore.color"
+                                    (ngModelChange)="updateAllComplete()">
+                                    {{singleStore.name}}
+                                </mat-checkbox>
+                            </li>
+                        </ul>
+                    </span>
+                </div>
+                <button mat-raised-button matStepperPrevious>Atrás</button>
+                <button mat-raised-button color="primary" matStepperNext>Siguiente</button>
+            </div>
+        </mat-step>
+        <mat-step [stepControl]="offerForm" label="Resumen">
+
+            <div>
+                <button mat-raised-button matStepperPrevious>Atrás</button>
+                <button mat-raised-button color="primary" (click)="onSubmit()" matStepperNext>Finalizar</button>
+            </div>
+        </mat-step>
+    </mat-horizontal-stepper>
+</div>

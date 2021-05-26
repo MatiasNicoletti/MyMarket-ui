@@ -12,16 +12,22 @@ export class OfferService {
     private router: Router
   ) { }
 
-  getOffers(query?){
-    // this.httpService.getOffers().subscribe(response => {
-    //   console.log(response);
-    // })
-    query = ''
-    // console.log(this.router.url);
-    return this.httpService.getOffers(this.router.url);
+  getOffers(){
+
+    return this.httpService.getOffers();
   }
 
-  getPhotoByProductId(productId){
-    return this.httpService.getPhotoByProductId(productId)
+  postOffer(offer){
+    return this.httpService.postOffer(offer);
   }
+
+  async getProductByName(name){
+    return this.httpService.getProduct(name);
+  }
+
+  getOfferById(id){
+
+  }
+
+
 }

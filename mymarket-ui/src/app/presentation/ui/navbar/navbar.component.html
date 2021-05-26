@@ -1,7 +1,21 @@
 <nav class="navbar">
     <ul class="navbar-list">
-        <a class="list-item navbar-list-item" (click)="onClick()">Login</a>
-        <a class="list-item navbar-list-item" [routerLink]="['/registrarme']">Signup</a>
-        <a class="list-item navbar-list-item">Link3</a>
+        <a class="list-item navbar-list-item" *ngIf="!currentUser" (click)="onClick()">Iniciar Sesión</a>
+        <a class="list-item navbar-list-item" *ngIf="!currentUser" (click)="onClick()">Registrarme</a>
+        <a class="list-item navbar-list-item" *ngIf="currentUser" (click)="onClick()">Logout</a>
+        <a [matMenuTriggerFor]="offers" *ngIf="currentUser" class="list-item navbar-list-item">Ofertas</a>
+        <a [matMenuTriggerFor]="business" *ngIf="currentUser" class="list-item navbar-list-item">Mi Empresa</a>
+        <mat-menu #business="matMenu"> 
+            <button mat-menu-item [routerLink]="['/mi-empresa']">Administrar</button>
+            <button mat-menu-item [matMenuTriggerFor]="businessOptions">Sucursales</button>
+        </mat-menu>
+        <mat-menu #businessOptions="matMenu">
+            <button mat-menu-item [routerLink]="['/mi-empresa/sucursal']">Nueva</button>
+            <button mat-menu-item [routerLink]="['/mi-empresa']">Mis Sucursales</button>
+        </mat-menu>
+        <mat-menu #offers="matMenu">
+            <button mat-menu-item [routerLink]="['/mis-ofertas']">Administrar</button>
+            <button mat-menu-item [routerLink]="['/nueva-oferta']">Nueva</button>
+        </mat-menu>
     </ul>
 </nav>

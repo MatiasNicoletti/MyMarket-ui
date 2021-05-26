@@ -3,9 +3,11 @@
         <p>1,1 km</p>
     </div>
     <section class="product-grid-item">
-        <img *ngIf="offer.imageUrl" src={{offer.imageUrl.data}} alt="" class="product-grid-item-img">
+        <!-- <img *ngIf="imaurl" [src]="imaurl" alt="test" class="product-grid-item-img"> -->
+        <img src="{{imaurl}}" alt="test" class="product-grid-item-img">
+        <!-- <img src="../../../../assets/img/imagen1.jpg" alt="test" class="product-grid-item-img"> -->
         <div class="product-grid-item-info">
-            <h4 class="product-grid-item-info-title">{{offer.description}}
+            <h4 class="product-grid-item-info-title">{{offer.nameProduct}}
             </h4>
             <div class="product-grid-item-info-price" *ngIf="isDiscountPrice;else percentageDiscount">
                 <p class="product-grid-item-info-price-old">${{offer.oldPrice}}</p>
@@ -18,9 +20,9 @@
                 <p>$1500</p>
                 <p>$99</p>
             </ng-template>
-            <div class="product-grid-item-info-action">
+            <!-- <div class="product-grid-item-info-action">
                 <button class="btn-bordered btn-small btn-add-cart">Agregar al carrito</button>
-            </div>
+            </div> -->
         </div>
     </section>
 </div>

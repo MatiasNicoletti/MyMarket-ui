@@ -18,13 +18,12 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent
   ],
   imports: [
+    CoreModule,
     BrowserModule,
     CommonModule,
     PresentationModule,
     AppRoutingModule,
-    CoreModule,
     ServicesModule,
-    AgmCoreModule.forRoot({apiKey:'AIzaSyAuX3B8s_MZwVGLRm5cXrBxn5FNfqzSYKA'}),
     BrowserAnimationsModule,
     HttpClientModule
   ],

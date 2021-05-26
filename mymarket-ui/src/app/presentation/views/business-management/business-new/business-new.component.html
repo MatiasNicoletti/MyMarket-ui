@@ -1,0 +1,41 @@
+<app-header></app-header>
+
+<div class="bussiness-container">
+    <div class="bussiness-header">
+        <!-- <h3 class="bussiness-header-text">Completá los campos para continuar</h3> -->
+    </div>
+    <mat-horizontal-stepper [linear]="isLinear" #stepper>
+        <mat-step [stepControl]="storesFormGroup" label="Ingresá tus sucursales">
+            <form [formGroup]="storesFormGroup">
+                <div class="bussiness-form-stores-map">
+
+                    <agm-map style="height: 40rem; width: 100%;" [zoom]="zoom" [latitude]="latitude"
+                        [longitude]="longitude" (mapClick)="addMarker($event.coords.lat, $event.coords.lng)">
+                        <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true"></agm-marker>
+                    </agm-map>
+                    <button class="add-store-map-btn" (click)="OnAddStore()" [disabled]="!isValidAddress"
+                        [ngClass]="{'add-store-map-btn-active': isValidAddress, 'add-store-map-btn-inactive': !isValidAddress}">Agregar
+                        Dirección</button>
+                    <div class="bussiness-form-stores-map-list">
+                        <h3 class="bussiness-form-stores-map-list-title">Mis Sucursales</h3>
+                        <app-business-list></app-business-list>
+                    </div>
+                </div>
+                <div>
+                    <button mat-button matStepperPrevious>Atrás</button>
+                    <button mat-button matStepperNext>Siguiente</button>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step>
+            <ng-template matStepLabel>Resumen</ng-template>
+            <h4>Mis Locales</h4>
+            <div class="summary-business-list">
+                <app-business-list></app-business-list>
+            </div>
+            <div>
+                <button class="btn-action btn-medium" (click)="onSubmit()" mat-button matStepperPrevious>Finalizar</button>
+            </div>
+        </mat-step>
+    </mat-horizontal-stepper>
+</div>
