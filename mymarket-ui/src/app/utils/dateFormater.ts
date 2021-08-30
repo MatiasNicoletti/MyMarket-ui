@@ -7,8 +7,8 @@ export class DateFormater {
   constructor() { }
   formatDate(date) {
     if (date) {
-      const currentdate = new Date(date);
-      return new Date(currentdate.getFullYear(), currentdate.getMonth(), currentdate.getDate(), currentdate.getHours(), currentdate.getMinutes());
+      const currentDate = new Date(date)
+      return `${currentDate.getFullYear()}-${("0" + (currentDate.getMonth() + 1)).slice(-2)}-${('0' + currentDate.getDate()).slice(-2)}`;
     }
   }
 }

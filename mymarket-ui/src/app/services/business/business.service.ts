@@ -35,6 +35,9 @@ export class BusinessService {
     
   }
 
+  getBranchById(id){
+    return this.http.getBranchById(id);
+  }
 
   addStore(store: BusinessStore){
     store.id = this.stores.length > 0 ? (this.stores[this.stores.length - 1].id + 1) : 1;

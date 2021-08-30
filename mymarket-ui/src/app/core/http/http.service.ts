@@ -6,6 +6,8 @@ import { url } from 'src/app/utils/urls';
   providedIn: 'root'
 })
 export class HttpService {
+ 
+  
 
   constructor(
     private http: HttpClient
@@ -15,16 +17,24 @@ export class HttpService {
     return this.http.post(url.OFFER_URL + '/offer', offer);
   }
 
-  getOffers(){
-    return this.http.get(url.OFFER_URL  + '/offer');
+  getOffers(productName?:string){
+    return this.http.get(url.OFFER_URL  + `/offer/?name=${productName}`);
   }
 
-  getOffersByUserId(){
-    return this.http.get(url.OFFER_URL  + '/offer');
+  deleteOneOffer(id){
+    return this.http.delete(url.OFFER_URL + '/offer/' + id);
+  }
+
+  getOfferById(id){
+    return this.http.get(url.OFFER_URL + '/offer/' + id);
+  }
+  
+  getOffersByUserId(userID:any){
+    return this.http.get(url.OFFER_URL  + '/offer/user/' + userID);
   }
 
   getBranchesByUserId(userId:number){
-    return this.http.get(url.OFFER_URL + '/business/branches/' + userId);
+    return this.http.get(url.OFFER_URL + '/branches/branches/' + userId);
   }
 
   getProduct(name:string){
@@ -36,6 +46,14 @@ export class HttpService {
   }
 
   getUserIdByEmail(email:string){
-    return this.http.get(url.OFFER_URL + '/business/user/' + email);
+    return this.http.get(url.OFFER_URL + '/user/' + email);
+  }
+
+  updateOffer(offer){
+    return this.http.put(url.OFFER_URL + '/offer', offer);
+  }
+
+  getBranchById(id) {
+    return this.http.get(url.OFFER_URL + '/branches?id=' + id)
   }
 }

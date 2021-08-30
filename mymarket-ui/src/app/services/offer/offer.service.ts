@@ -12,9 +12,13 @@ export class OfferService {
     private router: Router
   ) { }
 
-  getOffers(){
+  getOffers(productName?:string){
 
-    return this.httpService.getOffers();
+    return this.httpService.getOffers(productName);
+  }
+
+  getOffersByUserId(userID:any){
+    return this.httpService.getOffersByUserId(userID);
   }
 
   postOffer(offer){
@@ -26,8 +30,14 @@ export class OfferService {
   }
 
   getOfferById(id){
-
+    return this.httpService.getOfferById(id);
   }
 
+  updateOne(offer){
+    return this.httpService.updateOffer(offer);
+  }
 
+  deleteOne(id) {
+    return this.httpService.deleteOneOffer(id);
+  }
 }

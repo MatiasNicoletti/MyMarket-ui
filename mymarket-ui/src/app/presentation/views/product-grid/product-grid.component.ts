@@ -17,11 +17,11 @@ export class ProductGridComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
-      this.productWanted = params.producto;
+      this.productWanted = params.nombre;
+      this.offerService.getOffers(this.productWanted).subscribe((response:any) => {
+        this.offers = response.data;
+      });
     })
-    this.offerService.getOffers().subscribe((response:any) => {
-      this.offers = response.data;
-    });
   }
 
 }

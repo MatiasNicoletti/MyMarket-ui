@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';
+import { AuthService } from 'src/app/core/auth/auth.service';
 import { Offer } from 'src/app/models/offer';
 import { OfferService } from 'src/app/services/offer/offer.service';
 import { DateFormater } from 'src/app/utils/dateFormater';
@@ -29,7 +31,9 @@ export class MyOfferListComponent implements OnInit {
   dateFormater = new DateFormater();
 
   constructor(
-    private offerService: OfferService
+    private offerService: OfferService,
+    private authService: AuthService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -39,16 +43,15 @@ export class MyOfferListComponent implements OnInit {
     //   console.log(this.offers);
     //   this.dataSource = new MatTableDataSource(this.offers); 
     // })
-    this.offerService.getOffers().pipe(map(
+    this.offerService.getOffersByUserId(this.authService.getUserId()).pipe(map(
       (res:any) => {
+        console.log(res)
         let newArr = [];
         res.data.forEach(element => {
-          element.discountAmmount = ((element.price*100)/element.oldPrice).toFixed(0);
+          element.discountAmmount = (100 - (element.price * 100 / element.oldPrice)).toFixed(0)
           if(element.offerType == 'discount'){
             element.translatedType = 'Descuento';
           }
-          element.toDate = this.dateFormater.formatDate(element.toDate);
-          element.fromDate = this.dateFormater.formatDate(element.fromDate);
           newArr.push(element);
         });
         return newArr
@@ -58,6 +61,16 @@ export class MyOfferListComponent implements OnInit {
         console.log(this.offers)
         this.dataSource = new MatTableDataSource(this.offers); 
       })
+  }
+
+  onDelete(id){
+    this.offerService.deleteOne(id).subscribe(res => {
+      console.log(res);
+      this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.onSameUrlNavigation = 'reload';
+    this.router.navigate(['/mis-ofertas']);
+
+    })
   }
 
   onRouteToEditOffer(){

@@ -24,7 +24,7 @@ const routes: Routes = [
         component: ProductSelectionComponent
     },
     {
-        path: 'oferta',
+        path: 'oferta/:offerId',
         component: OfferComponent
     },
     {
@@ -55,7 +55,9 @@ const routes: Routes = [
 
 @NgModule({
     imports: [
-        RouterModule.forRoot(routes)
+        RouterModule.forRoot(routes, {
+            onSameUrlNavigation: 'reload'
+        })
     ],
     exports: [
         RouterModule

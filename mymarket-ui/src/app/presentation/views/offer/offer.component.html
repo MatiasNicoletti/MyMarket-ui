@@ -1,24 +1,20 @@
 <app-header></app-header>
 <app-search-bar></app-search-bar>
 
-<section class="offer-container">
+<section *ngIf="offer" class="offer-container">
     <div class="offer-information">
         <div class="offer-container-left">
-            <img class="offer-container-left-img" src="../../../../assets/img/7792180134516_02.jpg" alt="">
+            <img class="offer-container-left-img" src="{{offer.productImage}}" alt="">
         </div>
         <div class="offer-container-right">
-            <h4 class="offer-name">Harina 0000 Pureza</h4>
+            <h4 class="offer-name">{{offer.nameProduct}}</h4>
             <div class="old-price">
-                <p><span>$</span>139</p>
+                <p><span>$</span>{{offer.oldPrice}}</p>
             </div>
             <div class="final-price">
-                <p><span>$</span>109</p>
-                <p class="final-price-offer">30% off</p>
+                <p><span>$</span>{{offer.price}}</p>
+                <p class="final-price-offer">{{discount}}% off</p>
             </div>
-            
-            
-            
-
             <div class="offer-actions">
                 <div class="button-cart">
                     <div class="button-cart-value">3</div>

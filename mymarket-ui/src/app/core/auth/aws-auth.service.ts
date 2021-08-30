@@ -19,7 +19,7 @@ export class AwsAuthService {
         region: 'us-east-1',
         domain: 'mymarket.auth.us-east-1.amazoncognito.com',
         scope: ['email', 'openid', 'aws.cognito.signin.user.admin'],
-        redirectSignIn: 'https://127.0.0.1:4200/registrarme',
+        redirectSignIn: 'https://127.0.0.1:4200',
         redirectSignOut: 'https://127.0.0.1:4200',
         responseType: 'code' // or 'token', note that REFRESH token will only be generated when the responseType is code
       }

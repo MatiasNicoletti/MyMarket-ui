@@ -18,7 +18,7 @@ export class ProductGridItemComponent implements OnInit {
   ngOnInit(): void {
     this.offer.discount = (this.offer.price*100)/this.offer.oldPrice;
     this.imaurl = this.offer.imageProduct;
-    console.log(this.imaurl)
+    console.log(this.offer)
     /*this.offerService.getPhotoByProductId(this.offer.idProduct).subscribe(response => {
       this.offer.imageUrl = response;
      
@@ -28,6 +28,6 @@ export class ProductGridItemComponent implements OnInit {
   }
 
   onClick(){
-    this.router.navigate(['oferta'])
+    this.router.navigate([`oferta/${this.offer.idOferta}`])
   }
 }

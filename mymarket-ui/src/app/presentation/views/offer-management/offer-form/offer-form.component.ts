@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ThemePalette } from '@angular/material/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { OfferService } from 'src/app/services/offer/offer.service';
 import { debounceTime, tap, switchMap, finalize, map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from 'src/app/core/auth/auth.service';
 import { BusinessService } from 'src/app/services/business/business.service';
 import { BusinessStore } from 'src/app/models/businessStore';
+import { DateFormater } from 'src/app/utils/dateFormater';
+import { Offer } from 'src/app/models/offer';
 
 export interface Store {
   name: string;
@@ -35,19 +37,21 @@ export class OfferFormComponent implements OnInit {
   product;
   completed: boolean;
   offerIdToEdit;
-
+  offerToEdit:any = {};
+  minDate;
   searchProductCtrl = new FormControl();
   filteredProducts: any;
   isLoading = false;
   errorMsg: string;
-
+  isEditing:boolean = false;
   constructor(
     private _formBuilder: FormBuilder,
     private offerService: OfferService,
     private route: ActivatedRoute,
     private http: HttpClient,
     private authService: AuthService,
-    private businessService: BusinessService
+    private businessService: BusinessService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -56,6 +60,8 @@ export class OfferFormComponent implements OnInit {
     //   this.storesInfo.stores = res.data;
     //   console.log(res.data)
     // });
+    this.minDate = new Date();
+    
 
     this.businessService.getStoresByUser().pipe(
       map((data:any) => {
@@ -66,7 +72,6 @@ export class OfferFormComponent implements OnInit {
         //   newArr.push(el)
         // })
         data.data.map((v:any) => ({...v, completed: false}))
-        // console.log(newArr)
         return data;
       })
     ).subscribe(res => {
@@ -75,9 +80,24 @@ export class OfferFormComponent implements OnInit {
 
     this.route.params.subscribe(params => {
       if(params.offerId){
+        this.isEditing = true;
         this.offerIdToEdit = params.offerId;
+        this.offerService.getOfferById(this.offerIdToEdit).subscribe((res:any) => {
+          this.offerToEdit = res.data;
+          
+          this.offerForm.controls['oldPrice'].setValue(this.offerToEdit.price)
+          this.offerForm.controls['fromDate'].setValue(new Date(this.offerToEdit.fromDate))
+          this.offerForm.controls['toDate'].setValue(new Date(this.offerToEdit.toDate))
+          this.offerForm.controls['discount'].setValue(100 - (this.offerToEdit.price * 100 / this.offerToEdit.oldPrice));
+          console.log(this.storesInfo.stores)
+          this.storesInfo.stores.map(res => {
+           if(this.offerToEdit.branchIDs.includes(res.id)){
+            res.selected = true;
+           }
+            
+          })
+        });
       }
-      //this.product =  getofferbyid
     });
     this.initForm();
 
@@ -89,7 +109,7 @@ export class OfferFormComponent implements OnInit {
           this.filteredProducts = [];
           this.isLoading = true;
         }),
-        switchMap(value => this.http.get('http://localhost:4000/offer/product/?name=' + value)
+        switchMap(value => this.http.get('http://localhost:4000/product?name=' + value)
           .pipe(
             finalize(() => {
               this.isLoading = false
@@ -114,6 +134,7 @@ export class OfferFormComponent implements OnInit {
   onSubmit(){
     console.log(this.authService.getUserId());
     let offer = this.offerForm.value;
+    const dateFormater = new DateFormater();
     offer.offerType = 'discount';
     offer.price = offer.oldPrice * ( 1 - (offer.discount/100));
     offer.available = true;
@@ -122,15 +143,27 @@ export class OfferFormComponent implements OnInit {
     
     offer.branchIDs = [];
     offer.productID = this.product.id;
-    offer.fromDate = '2021-02-10 15:00';
-    offer.toDate = '2022-04-25 15:00';
+    offer.fromDate = dateFormater.formatDate(offer.fromDate) + ' 00:00';
+    // offer.toDate = '2022-04-25 15:00';
+    offer.toDate =  dateFormater.formatDate(offer.toDate) + ' 23:59';
     console.log(offer)
     this.storesInfo.stores.filter( el => el.selected).forEach(el => {
       offer.branchIDs.push(el.id);
     });
-    this.offerService.postOffer(offer).subscribe(res => {
-      console.log(res);
-    });
+    console.log(this.offerIdToEdit)
+    if(this.isEditing){
+      offer.id = parseInt(this.offerIdToEdit);
+      offer.productID = this.offerToEdit.productID;
+      this.offerService.updateOne(offer).subscribe(res => {
+        console.log(res);
+      });
+    }else{
+      this.offerService.postOffer(offer).subscribe(res => {
+        console.log(res);
+        
+      });
+    }
+      
   }
 
   onSearchProduct(){
@@ -176,12 +209,15 @@ export class OfferFormComponent implements OnInit {
 
   
   private initForm(){
+    console.log('llego')
     this.offerForm = this._formBuilder.group({
       productName: ['', Validators.required],
       price: ['', Validators.required],
       discount: ['', Validators.required],
       oldPrice: ['', Validators.required],
       offerType: ['', Validators.required],
+      fromDate: ['', Validators.required],
+      toDate: ['', Validators.required]
     });
   }
 }

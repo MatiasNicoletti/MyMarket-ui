@@ -1,7 +1,7 @@
 <div class="product-grid-item-container" (click)="onClick()">
-    <div class="offers-number">
+    <!-- <div class="offers-number">
         <p>1,1 km</p>
-    </div>
+    </div> -->
     <section class="product-grid-item">
         <!-- <img *ngIf="imaurl" [src]="imaurl" alt="test" class="product-grid-item-img"> -->
         <img src="{{imaurl}}" alt="test" class="product-grid-item-img">
@@ -13,7 +13,7 @@
                 <p class="product-grid-item-info-price-old">${{offer.oldPrice}}</p>
                 <div class="product-grid-item-info-price-new">
                     <p class="product-grid-item-info-price-new-number">${{offer.price}}</p>
-                    <p class="product-grid-item-info-price-new-dto">%{{offer.discount.toFixed(0)}}</p>
+                    <p class="product-grid-item-info-price-new-dto">%{{(100 - (offer.price * 100 / offer.oldPrice))}}</p>
                 </div>
             </div>
             <ng-template class="product-grid-item-info-price" #percentageDiscount>
