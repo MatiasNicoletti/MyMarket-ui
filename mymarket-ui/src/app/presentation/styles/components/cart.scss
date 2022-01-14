@@ -1,0 +1,32 @@
+.cart {
+    width: 75%;
+    // position: absolute;
+    margin: 5rem auto;
+    background-color: rgb(243, 243, 243);
+}
+
+.cart-item {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    padding: 0 3rem;
+    margin: 2rem 0;
+    &-left {
+        display: flex;
+        flex-direction: row;
+        background-color: rgb(92, 82, 82);
+        &-img {
+            width: 20rem;
+        }
+    }
+
+    &-right {
+        &-btns {
+            display: flex;
+            flex-direction: row;
+        }
+        display: flex;
+        flex-direction: row;
+    }
+}

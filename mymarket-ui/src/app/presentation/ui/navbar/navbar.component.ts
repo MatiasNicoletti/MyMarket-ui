@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/core/auth/auth.service';
 import { HttpService } from 'src/app/core/http/http.service';
 import { User } from 'src/app/models/user';
+import { CommonService } from 'src/app/services/common/common.service';
 import { OfferService } from 'src/app/services/offer/offer.service';
 import { UserService } from 'src/app/services/user/user.service';
 
@@ -15,7 +16,8 @@ export class NavbarComponent implements OnInit {
   constructor(
     private userService: UserService,
     private offerService: OfferService,
-    private authService: AuthService
+    private authService: AuthService,
+    private commonService: CommonService
   ) { }
 
   ngOnInit(): void {
@@ -32,6 +34,10 @@ export class NavbarComponent implements OnInit {
 
   onClick(){
     this.userService.hostedUISignin();
+  }
+
+  onClickOpenCart(){
+    this.commonService.emitData({openCart: true});
   }
 
 } 

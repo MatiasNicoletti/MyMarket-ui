@@ -10,8 +10,8 @@
                     </mat-form-field>
                     <button mat-raised-button color="primary" (keyup)="applyFilter($event)" (click)="onSearchProduct()">Buscar</button> -->
                     <mat-form-field>
-                        <input matInput placeholder="Ingresa el nombre del producto" aria-label="State" [matAutocomplete]="auto"
-                            [formControl]="searchProductCtrl">
+                        <input matInput placeholder="Ingresa el nombre del producto" aria-label="State"
+                            [matAutocomplete]="auto" [formControl]="searchProductCtrl">
                         <mat-autocomplete #auto="matAutocomplete">
                             <mat-option *ngIf="isLoading" class="is-loading">Cargando...</mat-option>
                             <ng-container *ngIf="!isLoading">
@@ -21,7 +21,7 @@
                             </ng-container>
                         </mat-autocomplete>
                     </mat-form-field>
-                   
+
                 </div>
                 <div class="offer-form-row">
                     <img class="offer-form-img" *ngIf="product" [src]="product.image">
@@ -38,18 +38,19 @@
             <form class="bussiness-form form-common" [formGroup]="offerForm">
                 <div class="bussiness-form-row bussiness-form-row-first">
                     <mat-radio-group aria-label="Select an option">
-                        <!-- <mat-radio-button (click)="onChangeOfferType()" value="1">Descuento</mat-radio-button> -->
-                        <!-- <mat-radio-button style="margin-left: 2rem;" (click)="onChangeOfferType()" value="2">Promoción</mat-radio-button> -->
+                        <mat-radio-button (click)="onChangeOfferType()" value="1">Descuento</mat-radio-button>
+                        <mat-radio-button style="margin-left: 2rem;" (click)="onChangeOfferType()" value="2">Promoción
+                        </mat-radio-button>
                     </mat-radio-group>
                 </div>
-                <div class="bussiness-form-row offer-inputs-row">
+                <div *ngIf="offerType != 'none'" class="bussiness-form-row offer-inputs-row">
                     <mat-form-field class="input-20">
                         <mat-label>Precio</mat-label>
                         <span matPrefix>$ &nbsp;</span>
                         <input formControlName="oldPrice" matInput>
                     </mat-form-field>
                     <!-- <div *ngIf="offerType == 'discount'"> -->
-                    <div>
+                    <div *ngIf="offerType == 'discount'">
                         <mat-form-field class="input-20">
                             <mat-label>Descuento</mat-label>
                             <span matPrefix>% &nbsp;</span>
@@ -57,17 +58,24 @@
                         </mat-form-field>
                     </div>
                     <div *ngIf="offerType == 'promotion'">
-
+                        <mat-form-field class="input-20">
+                            <mat-label>Llevando</mat-label>
+                            <input formControlName="promotionTake" matInput>
+                        </mat-form-field>
+                        <mat-form-field class="input-20">
+                            <mat-label>Pagás</mat-label>
+                            <input formControlName="promotionPay" matInput>
+                        </mat-form-field>
                     </div>
                     <mat-form-field appearance="fill">
                         <mat-label>Enter a date range</mat-label>
-                        <mat-date-range-input  [rangePicker]="picker" [min]="minDate">
-                          <input formControlName="fromDate" matStartDate placeholder="Start date">
-                          <input formControlName="toDate" matEndDate placeholder="End date">
+                        <mat-date-range-input [rangePicker]="picker" [min]="minDate">
+                            <input formControlName="fromDate" matStartDate placeholder="Start date">
+                            <input formControlName="toDate" matEndDate placeholder="End date">
                         </mat-date-range-input>
                         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                         <mat-date-range-picker startAt="new Date()" #picker></mat-date-range-picker>
-                      </mat-form-field>
+                    </mat-form-field>
                 </div>
             </form>
             <div>

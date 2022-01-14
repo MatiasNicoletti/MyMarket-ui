@@ -5,6 +5,7 @@
         <a class="list-item navbar-list-item" *ngIf="currentUser" (click)="onClick()">Logout</a>
         <a [matMenuTriggerFor]="offers" *ngIf="currentUser" class="list-item navbar-list-item">Ofertas</a>
         <a [matMenuTriggerFor]="business" *ngIf="currentUser" class="list-item navbar-list-item">Mi Empresa</a>
+        <a [routerLink]="['/mi-compra']" *ngIf="currentUser" class="list-item navbar-list-item">Mi Compra</a>
         <mat-menu #business="matMenu"> 
             <button mat-menu-item [routerLink]="['/mi-empresa']">Administrar</button>
             <button mat-menu-item [matMenuTriggerFor]="businessOptions">Sucursales</button>

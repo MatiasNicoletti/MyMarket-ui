@@ -33,7 +33,7 @@ export class OfferFormComponent implements OnInit {
   offerForm: FormGroup;
   discountForm: FormGroup;
   promotionForm: FormGroup;
-  offerType:string;
+  offerType:string = 'none';
   product;
   completed: boolean;
   offerIdToEdit;

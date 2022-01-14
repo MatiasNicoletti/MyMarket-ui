@@ -2,6 +2,7 @@
 $base-color: $color-base-green;
 
 .navbar{
+    position: relative;
     display: inline-block;
     border-radius: $border-radius-1;
     background-color: $base-color;

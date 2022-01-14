@@ -47,7 +47,6 @@ export class SearchBarComponent implements OnInit {
   }
 
   onClickOpenFilter() {
-    console.log(this.productName);
     this.commonService.emitData({openFilter: true, productName: this.productName});
   }
 }

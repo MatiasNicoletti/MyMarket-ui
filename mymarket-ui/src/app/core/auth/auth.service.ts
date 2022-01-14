@@ -17,8 +17,8 @@ export class AuthService {
     private http: HttpService
   ) { 
     this.currentUser = new User();
-    this.reloadLogin();
-    
+    //this.reloadLogin();
+    this.reloadLoginDev();
   }
 
   getUserSubscription(){
@@ -61,6 +61,25 @@ export class AuthService {
     }
     
   }
+
+  reloadLoginDev(){
+    
+    const email= "testemail@gmail.com";
+    const id = "1";
+    if(email && id){
+      this.loginDev(email);
+      this.currentUser.id = parseInt(id);
+    }
+    
+  }
+
+  loginDev(email:string){
+    
+    this.setEmailCurrentUser(email);
+    this.setLocalStorage(email, 10);
+    this.nextUser();
+  } 
+
 
   private nextUser(){
     this.userSubject.next(this.currentUser);

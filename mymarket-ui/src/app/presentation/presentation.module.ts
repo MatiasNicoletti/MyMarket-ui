@@ -35,6 +35,8 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { CartComponent } from './ui/cart/cart.component';
+import { CartItemComponent } from './ui/cart-item/cart-item.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +60,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     OfferFormComponent,
     BusinessListManagementComponent,
     BusinessNewComponent,
+    CartComponent,
+    CartItemComponent,
      
   ],
   imports: [

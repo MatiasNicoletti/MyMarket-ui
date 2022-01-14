@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CartComponent } from './presentation/ui/cart/cart.component';
 import { BusinessListManagementComponent } from './presentation/views/business-management/business-list-management/business-list-management.component';
 import { BusinessNewComponent } from './presentation/views/business-management/business-new/business-new.component';
 import { BussinessSigninComponent } from './presentation/views/bussiness-signin/bussiness-signin.component';
@@ -50,6 +51,10 @@ const routes: Routes = [
     {
         path: 'mis-ofertas',
         component: MyOfferListComponent
+    },
+    {
+        path: 'mi-compra',
+        component: CartComponent
     },
 ];
 
