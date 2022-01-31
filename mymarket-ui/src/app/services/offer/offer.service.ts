@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 import { HttpService } from 'src/app/core/http/http.service';
 
 @Injectable({
@@ -8,8 +7,7 @@ import { HttpService } from 'src/app/core/http/http.service';
 export class OfferService {
 
   constructor(
-    private httpService:HttpService,
-    private router: Router
+    private httpService:HttpService
   ) { }
 
   getOffers(productName?:string){

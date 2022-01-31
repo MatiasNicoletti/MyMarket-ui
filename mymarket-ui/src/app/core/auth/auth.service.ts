@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { User } from 'src/app/models/user';
-import { runInThisContext } from 'vm';
 import { HttpService } from '../http/http.service';
 
 @Injectable({
@@ -17,8 +16,8 @@ export class AuthService {
     private http: HttpService
   ) { 
     this.currentUser = new User();
-    //this.reloadLogin();
-    this.reloadLoginDev();
+    this.reloadLogin();
+    //this.reloadLoginDev();
   }
 
   getUserSubscription(){

@@ -10,12 +10,14 @@
     flex-direction: row;
     width: 100%;
     justify-content: space-between;
+    align-items: center;
     padding: 0 3rem;
     margin: 2rem 0;
     &-left {
         display: flex;
         flex-direction: row;
-        background-color: rgb(92, 82, 82);
+        width: 90%;
+        background-color: rgb(82, 92, 87);
         &-img {
             width: 20rem;
         }
@@ -23,8 +25,24 @@
 
     &-right {
         &-btns {
+            height: 50%;
             display: flex;
             flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            width: 17rem;
+            background-color: rgb(92, 82, 82);
+            margin-left: 2rem;
+            & *{
+                margin: 0 1rem;
+            }
+            &-value{
+                position: relative;
+                font-size: 2rem;
+                font-weight: bold;
+                top: 0.7rem;
+                margin:0 2rem ;
+            }
         }
         display: flex;
         flex-direction: row;

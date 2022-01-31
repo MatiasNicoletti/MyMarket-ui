@@ -10,11 +10,11 @@
         </div>
         <div class="cart-item-right">
             <div class="cart-item-right-btns">
-                <button class="btn-action btn-small ">-</button>
-                <p>10</p>
-                <button class="btn-action btn-small ">+</button>
+                <button class="btn-action btn-small btn-cart-op" (click)="onSubtractItem()">-</button>
+                <p class="cart-item-right-btns-value">{{counter}}</p>
+                <button class="btn-action btn-small btn-cart-op"(click)="onAddItem()">+</button>
             </div>
-            <p>$750</p>
+            <h2>$750</h2>
         </div>
     </div>
 
@@ -25,9 +25,9 @@
         </div>
         <div class="cart-item-right">
             <div class="cart-item-right-btns">
-                <button class="btn-action btn-small ">-</button>
+                <button class="btn-action btn-small btn-cart-op">-</button>
                 <p>10</p>
-                <button class="btn-action btn-small ">+</button>
+                <button class="btn-action btn-small btn-cart-op">+</button>
             </div>
             <p>$750</p>
         </div>
