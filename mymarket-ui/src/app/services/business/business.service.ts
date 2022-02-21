@@ -30,7 +30,7 @@ export class BusinessService {
       delete el.id;
     });
     this.http.postBusiness(stores).subscribe(res => {
-      console.log(res)
+      return res
     });
     
   }

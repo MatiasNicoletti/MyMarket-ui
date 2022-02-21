@@ -19,14 +19,14 @@ export class OfferComponent implements OnInit {
   ) { }
   ngOnInit(): void {
     this.route.params.subscribe(res => {
-      console.log(res)
+     
       this.offerService.getOfferById(res.offerId).subscribe((res:any) => {
+        console.log(res)
         this.offer = res.data
         this.discount = 100 - ((this.offer.price * 100)/this.offer.oldPrice);
-        console.log(res)
         this.offer.branchIDs.forEach(element => {
           this.businessService.getBranchById(element).subscribe((res:any) => {
-            console.log(res)
+      
             this.branches.push(res.data)
           })
         });

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ThemePalette } from '@angular/material/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { OfferService } from 'src/app/services/offer/offer.service';
 import { debounceTime, tap, switchMap, finalize, map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
@@ -9,7 +9,6 @@ import { AuthService } from 'src/app/core/auth/auth.service';
 import { BusinessService } from 'src/app/services/business/business.service';
 import { BusinessStore } from 'src/app/models/businessStore';
 import { DateFormater } from 'src/app/utils/dateFormater';
-import { Offer } from 'src/app/models/offer';
 
 export interface Store {
   name: string;
@@ -50,8 +49,7 @@ export class OfferFormComponent implements OnInit {
     private route: ActivatedRoute,
     private http: HttpClient,
     private authService: AuthService,
-    private businessService: BusinessService,
-    private router: Router
+    private businessService: BusinessService
   ) { }
 
   ngOnInit(): void {
@@ -65,7 +63,7 @@ export class OfferFormComponent implements OnInit {
 
     this.businessService.getStoresByUser().pipe(
       map((data:any) => {
-        // console.log(data.data)
+        console.log(data.data)
         // let newArr = [];
         // data.forEach((el:any) => {
         //   el.completed = false;
@@ -208,8 +206,7 @@ export class OfferFormComponent implements OnInit {
   }
 
   
-  private initForm(){
-    console.log('llego')
+  initForm(){
     this.offerForm = this._formBuilder.group({
       productName: ['', Validators.required],
       price: ['', Validators.required],

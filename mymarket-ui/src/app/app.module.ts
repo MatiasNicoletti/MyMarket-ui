@@ -9,7 +9,6 @@ import { RouterModule } from '@angular/router';
 import { CommonService } from './services/common/common.service';
 import { CoreModule } from './core/core.module';
 import { ServicesModule } from './services/services.module';
-import { AgmCoreModule } from '@agm/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 
